@@ -1,0 +1,151 @@
+<html class="scroll-smooth" lang="id">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>
+    FX Intelligence Chatbot AI
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body class="bg-black min-h-screen flex flex-col">
+  <header
+    class="fixed top-0 left-72 right-0 z-30 flex items-center justify-between px-4 sm:px-6 py-3 bg-black backdrop-blur-md">
+    <div class="flex items-center space-x-2">
+      <img alt="Logo FX Intelligence, a stylized blue and white icon representing AI intelligence" class="w-8 h-8"
+        height="32" src="icon/fx-intelligence-icon-pwa v2.png" width="32" />
+      <h1 class="text-xl font-semibold text-white select-none">
+        FX Intelligence
+      </h1>
+    </div>
+    <a aria-label="User page" class="text-white hover:text-white transition-colors" href="#" id="userPageLink"
+      title="User page">
+      <i class="fas fa-user fa-lg">
+      </i>
+    </a>
+  </header>
+  <div class="flex flex-1 pt-0 min-h-0">
+    <aside aria-label="Sidebar menu"
+      class="flex flex-col w-72 bg-black border-r border-[rgba(255,255,255,0.1)] min-h-screen sticky top-0 left-0 z-40">
+      <div class="flex flex-col flex-grow overflow-y-auto">
+
+        <h1 class="px-5 py-4 border-b border-black text-white font-semibold select-none text-xl">
+          Menu
+        </h1>
+
+        <nav class="nav-links">
+          <button id="btnFxIntelligence" type="button" class="nav-btn">
+            <img src="icon/fx-intelligence-icon-pwa v2.png" alt="Icon FX Intelligence, a blue and white AI brain symbol"
+              class="nav-icon" />
+            <span>FX Intelligence</span>
+          </button>
+
+          <button id="btnHome" type="button" class="nav-btn">
+            <i class="fas fa-home nav-icon"></i>
+            <span>Home</span>
+          </button>
+
+          <button id="btnAbout" type="button" class="nav-btn">
+            <a href="about.html">
+              <i class="fas fa-info-circle nav-icon"></i>
+              <span>About</span>
+          </button>
+
+          <button id="btnCustomerService" type="button" class="nav-btn">
+            <a href="about.html"></a>
+            <i class="fas fa-headset nav-icon"></i>
+            <span>Customer Service</span>
+          </button>
+        </nav>
+
+        <div class="border-t border-zinc-800 px-4 py-3 flex flex-col">
+          <h2 class="text-white font-semibold mb-2 select-none">
+            Riwayat Obrolan
+          </h2>
+          <div aria-label="Riwayat sesi obrolan" class="flex flex-col space-y-2 max-h-72 overflow-y-auto pr-1"
+            id="chatHistory">
+
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-footer">
+        <button id="btnNewChat" type="button">
+          Obrolan Baru
+        </button>
+        <button id="btnLogout" type="button">
+          Keluar
+        </button>
+      </div>
+
+    </aside>
+    <main aria-label="Main chat area"
+      class="flex flex-col flex-grow min-h-screen max-h-screen overflow-hidden bg-black text-white">
+      <div aria-atomic="false" aria-live="polite" class="flex-grow overflow-y-auto px-6 py-6" id="chatContainer"
+        tabindex="0">
+        <p class="text-White text-lg font-semibold select-none" id="greetingText">
+        </p>
+        <div class="mt-4 flex flex-col space-y-3 max-w-3xl" id="chatMessages"></div>
+      </div>
+
+      <!-- Input Chat Baru -->
+      <div class="chat-input-container">
+        <form id="chatForm" aria-label="Form input chat" autocomplete="off" class="chat-form">
+
+          <!-- Textarea -->
+          <textarea id="chatInput" rows="1" placeholder="Tanyakan sesuatu." aria-label="Chat input"></textarea>
+
+          <!-- Upload + Mic + Send -->
+          <div class="chat-actions">
+            <!-- Upload -->
+            <label for="fileUpload" class="upload-btn">
+              <i class="fas fa-paperclip"></i>
+              Unggah Gambar
+            </label>
+            <input type="file" id="fileUpload" accept="image/*" multiple hidden>
+
+            <!-- Mic + Send -->
+            <div class="mic-send">
+              <button id="micButton" aria-label="Toggle microphone" type="button" class="mic-btn">
+                <i class="fas fa-microphone"></i>
+              </button>
+              <button id="sendButton" aria-label="Send message" type="submit" class="send-btn">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                  class="icon">
+                  <path
+                    d="M8.99992 16V6.41407L5.70696 9.70704C5.31643 10.0976 4.68342 10.0976 4.29289 9.70704C3.90237 9.31652 3.90237 8.6835 4.29289 8.29298L9.29289 3.29298L9.36907 3.22462C9.76184 2.90427 10.3408 2.92686 10.707 3.29298L15.707 8.29298L15.7753 8.36915C16.0957 8.76192 16.0731 9.34092 15.707 9.70704C15.3408 10.0732 14.7618 10.0958 14.3691 9.7754L14.2929 9.70704L10.9999 6.41407V16C10.9999 16.5523 10.5522 17 9.99992 17C9.44764 17 8.99992 16.5523 8.99992 16Z">
+                  </path>
+                </svg>
+              </button>
+
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="chat-footer">
+        © 2025 FX Developer with FX Intelligence all rights reserved.
+      </div>
+
+      <div id="editTitleOverlay" role="dialog" aria-labelledby="editTitleLabel" aria-modal="true"
+        class="overlay hidden">
+        <div class="edit-dialog">
+          <h3 id="editTitleLabel">Ubah Judul Obrolan</h3>
+          <textarea id="editTitleTextarea" rows="2" aria-label="Ubah judul obrolan"></textarea>
+          <div class="actions">
+            <button id="btnCancelEditTitle" type="button" class="btn-cancel">Batal</button>
+            <button id="btnSaveEditTitle" type="button" class="btn-save">Simpan</button>
+          </div>
+        </div>
+      </div>
+
+  </div>
+  </div>
+  <script src="script/script.js"></script>
+</body>
+
+</html>
